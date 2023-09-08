@@ -16,7 +16,7 @@ interface SickListProps extends ComponentProps<'li'> {
 const List = forwardRef<HTMLLIElement, SickListProps>(
   ({ sick, selected, keyword, ...props }, ref) => (
     <li className={cx('sickList', { selected: selected })} {...props} ref={ref}>
-      <GlassIcon /> {keyword ? boldText(sick, keyword) : sick}
+      <GlassIcon className={cx('icon')} /> {keyword ? boldText(sick, keyword) : sick}
     </li>
   ),
 )
