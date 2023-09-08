@@ -13,6 +13,8 @@ npm install && npm run dev
 
 [배포링크](https://vercel.com/new/wanted-pre-onboarding-1-3/success?developer-id=&external-id=&redirect-url=&branch=main&deploymentUrl=wanted-pre-onboarding-12-3-bohyeon-e0bqu4rrf.vercel.app&projectName=wanted-pre-onboarding-12-3-bohyeon&s=https%3A%2F%2Fgithub.com%2FBHyeonKim%2Fwanted-pre-onboarding-12-3-bohyeon&gitOrgLimit=&hasTrialAvailable=0&totalProjects=1)
 
+---
+
 ### 구현사항
 
 #### Cache Storage를 사용한 로컬 캐싱
@@ -88,9 +90,12 @@ const useDebounce = <P extends unknown[], R = unknown>(
 export default useDebounce
 
 ```
+
 <br/>
 <br/>
+
 사가
+
 ```
 function* watchChangeInput() {
   yield debounce(500, changeInput.type, fetchData)
@@ -101,6 +106,7 @@ export default function* rootSaga() {
 }
 ```
 
+---
 
 ### 사용 기술 스택
 
@@ -109,6 +115,7 @@ export default function* rootSaga() {
 - library: react, axios, classnames, redux toolkit, redux-saga, html-react-parser
 
 
+---
 
 
 ### Project Structure
