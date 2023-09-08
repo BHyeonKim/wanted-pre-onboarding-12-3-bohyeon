@@ -1,6 +1,6 @@
 import { GlassIcon } from 'assets/svgs'
 import classNames from 'classnames/bind'
-import { ComponentProps, FC } from 'react'
+import { ComponentProps, forwardRef } from 'react'
 import { boldText } from 'utils/bold'
 
 import styles from './list.module.scss'
@@ -13,10 +13,14 @@ interface SickListProps extends ComponentProps<'li'> {
   keyword?: string
 }
 
-const List: FC<SickListProps> = ({ sick, selected, keyword, ...props }) => (
-  <li className={cx('sickList', { selected: selected })} {...props}>
-    <GlassIcon /> {keyword ? boldText(sick, keyword) : sick}
-  </li>
+const List = forwardRef<HTMLLIElement, SickListProps>(
+  ({ sick, selected, keyword, ...props }, ref) => (
+    <li className={cx('sickList', { selected: selected })} {...props} ref={ref}>
+      <GlassIcon /> {keyword ? boldText(sick, keyword) : sick}
+    </li>
+  ),
 )
+
+List.displayName = 'list'
 
 export default List

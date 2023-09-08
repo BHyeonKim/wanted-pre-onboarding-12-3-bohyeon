@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind'
 import List from 'components/List'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useAppSelector } from 'redux/hooks'
 
 import styles from './searchRecommendation.module.scss'
@@ -12,6 +12,12 @@ const START_INDEX = -1
 const SearchRecommendation = () => {
   const { sicks, input } = useAppSelector((state) => state.sicks)
   const [itemIndex, setItemIndex] = useState(START_INDEX)
+  const listRef = useRef<HTMLLIElement>(null)
+
+  useEffect(() => {
+    if (!listRef.current) return
+    listRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }, [itemIndex])
 
   useEffect(() => {
     setItemIndex(START_INDEX)
@@ -42,6 +48,7 @@ const SearchRecommendation = () => {
           <List
             key={key}
             keyword={input}
+            ref={index === itemIndex ? listRef : undefined}
             selected={index === itemIndex}
             sick={sick.sickNm}
           />

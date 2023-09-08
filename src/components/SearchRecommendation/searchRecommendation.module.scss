@@ -5,7 +5,9 @@
   top: 80px;
   left: 50%;
   width: 490px;
+  max-height: 400px;
   padding: 20px;
+  overflow: hidden;
   background-color: color.$WHITE;
   border-radius: 18px;
   box-shadow: 0 2px 4px rgba(30, 32, 37, 10%);
